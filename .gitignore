@@ -16,3 +16,4 @@ ammo/7x46/pack/
 
 # 日志
 *.log
+.commitmsg

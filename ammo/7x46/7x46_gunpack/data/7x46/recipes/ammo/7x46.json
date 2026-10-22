@@ -1,0 +1,29 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "forge:ingots/copper"
+      },
+      "count": 15
+    },
+    {
+      "item": {
+        "tag": "forge:gunpowder"
+      },
+      "count": 4
+    },
+    {
+      "item": {
+        "tag": "forge:gems/lapis"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "type": "ammo",
+    "group": "ifp_rifle_cartridges",
+    "id": "7x46:7x46",
+    "count": 40
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

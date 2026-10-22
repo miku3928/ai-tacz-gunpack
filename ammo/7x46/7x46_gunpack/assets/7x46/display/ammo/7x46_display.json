@@ -1,0 +1,10 @@
+{
+  "model": "7x46:ammo/7x46",
+  "texture": "7x46:ammo/uv/7x46",
+  "slot": "7x46:ammo/slot/7x46",
+  "shell": {
+    "model": "7x46:shell/7x46_shell",
+    "texture": "7x46:shell/7x46_shell"
+  },
+  "tracer_color": "#FFB347"
+}

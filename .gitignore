@@ -1,0 +1,18 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+
+# blender
+*.blend1
+
+# 重建会再生的中间产物
+work/
+out/
+blender/work/
+ammo/7x46/pack/
+
+# 日志
+*.log

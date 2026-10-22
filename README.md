@@ -4,6 +4,9 @@
 
 **游戏内实测：可用，无恶性 bug。**
 
+> ### [⬇ 直接下载枪包 R3 Carbine v1.0.0](https://github.com/miku3928/ai-tacz-gunpack/releases/latest/download/Rifle3_GunPack_1.0.0.zip)
+> 一个 zip，下载完丢进 `<实例>/tacz/` 重启游戏就能玩。不想下整个仓库的，只要这一个文件。
+
 ![hero](docs/images/hero.png)
 
 ---
@@ -12,11 +15,13 @@
 
 **需要**：Minecraft 1.20.1 + Forge 47.4.10 + TaCZ `1.1.8-hotfix2` + **TML**（`tacz-mesh-loader-forge-1.20.1-0.1.8`，poly_mesh 格式必需）。
 
-```
-1. 把 dist/Rifle3_GunPack_1.0.0.zip 丢进 <实例>/tacz/
-2. 重启游戏（换包必须重启，/tacz reload 对 gun index 不一定够）
-3. 创造模式物品栏的 TaCZ 页签里找 R3 Carbine / R3 卡宾枪
-```
+1. **[下载 Rifle3_GunPack_1.0.0.zip](https://github.com/miku3928/ai-tacz-gunpack/releases/latest/download/Rifle3_GunPack_1.0.0.zip)**（1.2 MB）
+2. 丢进 `<实例>/tacz/` 目录
+3. **重启游戏**（换包必须重启，`/tacz reload` 对 gun index 不一定够）
+4. 创造模式物品栏的 TaCZ 页签里找 **R3 Carbine / R3 卡宾枪**
+
+> 只想要弹药、不要枪的话，[单独下 7x46 弹药包](https://github.com/miku3928/ai-tacz-gunpack/releases/latest/download/7x46_GunPack_1.0.0.zip)。
+> 已经装过枪的话不用管它——7x46 已经包含在上面那个包里了。
 
 枪吃 **7×46 mm** 实验弹（随包附带，枪械工作台可合成：铜锭 15 + 火药 4 + 青金石 4 → 40 发）。
 

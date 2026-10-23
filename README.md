@@ -58,6 +58,27 @@ TaCZ 没有公开的模型格式文档，而一个枪包出错的方式几乎全
 3. **把「看起来对」换成数字。** 第一人称位置、镜孔黑边比例、附件挂点，全部与官方 112 把枪做语料统计标定之后才落地（见 `docs/踩坑与解法.md` 的 P4）。
 4. **结论落到文档里，而不是烂在会话里。** `docs/` 三份：玩家验收、开发者交接、方法论。
 
+### 顺手做出来的工具：第一人称定位调参器
+
+改第一人称枪的位置，原本只能开 Blockbench、装 cameras 插件、把 FOV 设成 70、对着屏幕猜，改一次重启一次游戏。这个工具把那条路砍成：选枪 → 拖 → 写回 → `/tacz reload`。
+
+> ### [⬇ 下载调参器 TaCZ First Person Tuner v1.0](https://github.com/miku3928/ai-tacz-gunpack/releases/download/v1.0.0/TaCZ_FirstPerson_Tuner_v1.0.zip)
+> 解压双击 exe，**不需要装 Python**。源码在 [`tools/fpv_tuner/`](tools/fpv_tuner/)。
+
+![调参器](tools/fpv_tuner/screenshot.png)
+
+它不只对 R3 有用，**任何** TaCZ 枪包都能调 —— 官方包、别人的包、你自己在做的包。支持 cube 和 poly_mesh（TML）两种模型，目录形态和 zip 形态的枪包都能读写。
+
+预览用的矩阵不是拟合的：
+
+```
+P = Rz(180°) · inv(W)
+```
+
+从 `GunItemRendererWrapper.renderFirstPerson` 逐行推出来，再用「照抄字节码」的写法反向核对，六把官方枪的最大误差 **1.9e-16**。所以预览里看到的位置就是游戏里的位置。
+
+顺带纠正一个流传很广的说法：**枪的第一人称渲染不经过原版 `ItemInHandRenderer`**。TaCZ 自己的 `FirstPersonRenderEvent` 里 `@SubscribeEvent` 被注释掉了，实际是内嵌库 simplebedrockmodel 的 `FirstPersonRenderHandler` 接管 `RenderHandEvent` 并 cancel 掉原版渲染。从「原版会拉远、往下、往右」去推偏移，方向从一开始就是错的。
+
 ### 做到的
 
 **换弹动画照抄官方 m4a1。** 把官方 `m4a1.animation.json` 的骨架、节奏、音效节拍逐通道对齐，再换成自己的几何。左手**真的抓着弹匣一起走**（弹匣挂在手骨子树下，`lefthand` 的 position 通道叠了弹匣位移），不是「原力换弹」。空仓换弹最后会拉一下枪机。
